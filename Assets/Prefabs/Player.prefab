@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1778492669610290249}
   - component: {fileID: 8337013988775230720}
   - component: {fileID: 4855059192210500893}
+  - component: {fileID: 5181835172149153946}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -95,7 +96,23 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &5181835172149153946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884129518095177118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4567da26793234185965dc80734ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpPower: 7
+  _playerRigidbody: {fileID: 4855059192210500893}
+  _moveSpeed: 0
+  _groundCheckDistance: 0
 --- !u!1 &6402805959390146814
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +185,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 400
   m_Sprite: {fileID: 21300000, guid: 4836c09be31426e49b52ea966be0a3c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
