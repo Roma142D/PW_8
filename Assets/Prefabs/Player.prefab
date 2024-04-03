@@ -110,9 +110,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpPower: 7
-  _playerRigidbody: {fileID: 4855059192210500893}
   _moveSpeed: 0
+  _playerRigidbody: {fileID: 4855059192210500893}
   _groundCheckDistance: 0
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &6402805959390146814
 GameObject:
   m_ObjectHideFlags: 0

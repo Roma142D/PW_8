@@ -4,29 +4,40 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    [SerializeField] protected float _jumpPower;
-    [SerializeField] protected float _moveSpeed;
-    [SerializeField] protected Rigidbody2D _playerRigidbody;
-    protected bool _isGrounded;
-    protected bool _isJump;
+    [SerializeField] private float _jumpPower;
+    [SerializeField] private float _moveSpeed;
     [SerializeField] private float _groundCheckDistance;
+    private bool _isGrounded;
+    private bool _isJump;
+    [SerializeField] private Rigidbody2D _playerRigidbody;
+    [SerializeField] private LayerMask _groundMask;
     
-    public void Jump()
+    private void Jump()
     {
         _playerRigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
     }
+    private void Move()
+    {
+        var _direction = Input.GetAxis("Horizontal");
+        _playerRigidbody.velocity = new Vector2(_moveSpeed * _direction, _playerRigidbody.velocity.y);
+    }
+
     private void FixedUpdate()
     {
-        _isGrounded = Physics2D.Raycast(_playerRigidbody.position, Vector2.down, _groundCheckDistance);
+        _isGrounded = Physics2D.Raycast(_playerRigidbody.position, Vector2.down, _groundCheckDistance, _groundMask);
         Debug.DrawLine(_playerRigidbody.position, _playerRigidbody.position + Vector2.down * _groundCheckDistance, Color.red);
     }
     private void Update()
     {
         _isJump = Input.GetKeyDown(KeyCode.W);
-
-        if(_isJump)
+                       
+        if(_isJump && _isGrounded)
         {
             Jump();
+        }
+        else if(!_isGrounded)
+        {
+            Move();
         }
     }
 }
