@@ -6,6 +6,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _groundCheckDistance;
     private bool _isGrounded;
+    private bool _backgroundTriger;
     [SerializeField] private Rigidbody2D _playerRigidbody;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private InputManager inputManager;
@@ -27,7 +28,7 @@ public class MovementController : MonoBehaviour
             Move();
         }
     }
-    
+
     private void Jump()
     {
         _playerRigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
