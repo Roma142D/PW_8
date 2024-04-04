@@ -110,9 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpPower: 7
-  _moveSpeed: 0
+  _moveSpeed: 5
+  _groundCheckDistance: 0.6
   _playerRigidbody: {fileID: 4855059192210500893}
-  _groundCheckDistance: 0
   _groundMask:
     serializedVersion: 2
     m_Bits: 8
